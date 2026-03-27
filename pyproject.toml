@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openvault"
+version = "0.1.0"
+description = "Git for engineering files — version-control your CAD designs with meaningful metadata."
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "gitpython>=3.1",
+    "click>=8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+openvault = "openvault.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
